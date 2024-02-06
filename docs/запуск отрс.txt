@@ -1,0 +1,16 @@
+
+
+sudo su - otrs -c "/opt/otrs/bin/otrs.Daemon.pl stop"
+sudo su - otrs -c "/opt/otrs/bin/Cron.sh stop"
+
+sudo systemctl restart apache2
+sudo systemctl restart mariadb
+
+**sudo perl /opt/otrs/bin/otrs.SetPermissions.pl
+sudo /opt/otrs/bin/otrs.SetPermissions.pl --otrs-user=otrs --web-group=www-data /opt/otrs
+sudo su - otrs -c "/opt/otrs/bin/otrs.Daemon.pl start"
+
+
+**sudo perl /opt/otrs/bin/otrs.SetPermissions.pl
+sudo /opt/otrs/bin/otrs.SetPermissions.pl --otrs-user=otrs --web-group=www-data /opt/otrs
+sudo su - otrs -c "/opt/otrs/bin/Cron.sh start"
